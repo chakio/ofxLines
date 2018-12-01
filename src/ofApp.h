@@ -49,7 +49,7 @@ class ofApp : public ofBaseApp{
 
 		ofVec2f target; 
 
-		int times[4];
+		int times[3];
 		double radiuses[3] = {0,120,200};//ライト配置の半径、球の半径、球の移動半径
 
 		int mode = 0;

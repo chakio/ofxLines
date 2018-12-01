@@ -50,8 +50,6 @@ void ofApp::update(){
 	times[0] = (int)(ofGetElapsedTimef() * 60) % (Num + 1);
 	times[1] = (int)(ofGetElapsedTimef() * rotation) % (Num + 1);
 	times[2] = (int)(ofGetElapsedTimef() * 100) % (Num + 1);
-	times[3] = (int)(ofGetElapsedTimef() * 30) % (16*(Num + 1));
-	
 	updateLines();	
 }
 
@@ -60,7 +58,6 @@ void ofApp::draw(){
 	//gui.draw();
 	ofEnableDepthTest();
 	cam.begin();
-	double r = radius;
 
 	for (int i = 0; i < lines.size(); i++)
 	{
@@ -113,27 +110,26 @@ void ofApp::updateLines()
 			ofVec3f v1;
 			v1 = start - center;
 
-			double theta1;//xy���ʂɑ΂���p�x�̌v�Z
+			double theta1;
 			theta1 = atan2(v1.z, v1.x);
 
-			ofVec3f v2;//v1��xy���ʏ�ɗ���悤�ɉ�]�����x�N�g��
+			ofVec3f v2;
 			v2 = v1.getRotatedRad(theta1, ofVec3f(0, 1, 0));
 
-			ofVec3f v3;//v2��xy���ʂ�90�x��]�����x�N�g�� ������radius2
+			ofVec3f v3;
 			v3 = v2.getRotatedRad(PI / 2, ofVec3f(0, 0, 1));
 			v3 = v3.getNormalized();
 
-			ofVec3f v4;//�ړ_����v1�ɐ���������Ƃ���̌�_�Ƌ��̒��S�܂ł̃x�N�g��
+			ofVec3f v4;
 			v4 = (v2.length() - (pow(v2.length(), 2) - pow(radiuses[1], 2)) / v2.length())*v2.getNormalized();
 
-			ofVec3f v5;//���߂��������x�N�g��
+			ofVec3f v5;
 			v5 = v4 + v3*sqrt(pow(radiuses[1], 2) - pow(v4.length(), 2));
 
 			v5 = v5.getRotatedRad(2 * PI*(((double)times[1] + (double)t) / (double)Num), v1);//���Ԃɉ����ĉ�
 
-			v5 = v5.getRotatedRad(theta1, ofVec3f(0, -1, 0));//���̕����ɖ߂�
-			v5 = v5 + center;//���̈ʒu�ɖ߂�;
-
+			v5 = v5.getRotatedRad(theta1, ofVec3f(0, -1, 0));
+			v5 = v5 + center;
 			end = v5;
 		}
 		lines[t].setEnd(end);
@@ -162,6 +158,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+	//マウスで円と球の切り替え
 	mode = (mode + 1) % 2;
 }
 
