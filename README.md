@@ -2,7 +2,7 @@
 ofxLines
 ====
 
-* ムービングライトへのあこがれ
+* ムービングライトへのあこがれ  
 ![result](https://github.com/chakio/ofxLines/blob/master/media/lines.gif)  
 ## Description
 ライブ演出などで使われるムービングライトをたくさん配置し、  
