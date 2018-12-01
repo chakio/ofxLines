@@ -3,8 +3,7 @@ ofxLines
 ====
 
 * ムービングライトへのあこがれ
-![result](https://github.com/chakio/ofxAStar/blob/master/media/demo.gif)  
-![result](https://github.com/chakio/ofxAStar/blob/master/media/demo2.gif)
+![result](https://github.com/chakio/ofxLines/blob/master/media/lines.gif)  
 ## Description
 ライブ演出などで使われるムービングライトをたくさん配置し、  
 空間上に図形を描画することをシミュレーションしてみました。
