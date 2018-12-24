@@ -105,7 +105,7 @@ void ofApp::updateLines()
 			}
 			end.y =center.y;
 		}
-		else if (mode == 1)
+		else if (mode == 1)//球の場合
 		{
 			ofVec3f v1;
 			v1 = start - center;
